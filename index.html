@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Interactif - Fréjus GBAGUIDI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: #e2e8f0; } /* Slate-900 background */
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 500px; 
+            margin: 0 auto; 
+            height: 350px; 
+            max-height: 400px; 
+        }
+        /* Dark Theme Timeline Active State */
+        .timeline-item.active { border-left-color: #6366f1; background-color: rgba(99, 102, 241, 0.1); }
+        
+        .tech-tag { transition: all 0.2s; }
+        .tech-tag:hover { transform: translateY(-2px); box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
+        
+        /* Custom scrollbar for dark theme */
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #1e293b; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 3px; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #64748b; }
+        
+        /* Architecture Diagram Styles - Dark Mode */
+        .archi-box { 
+            background: #1e293b; /* Slate-800 */
+            border: 2px solid #334155; /* Slate-700 */
+            border-radius: 8px; 
+            padding: 10px; 
+            text-align: center; 
+            font-weight: 600; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2); 
+            position: relative; 
+            z-index: 10; 
+            color: #f1f5f9;
+        }
+    </style>
+    <!-- Chosen Palette: Dark Slate (Background), Luminous Indigo (Primary), Emerald (Success) -->
+</head>
+<body class="bg-slate-900 text-slate-200 antialiased">
+
+    <!-- Header / Nav -->
+    <header class="bg-slate-800 shadow-lg border-b border-slate-700 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center flex-wrap gap-4">
+            <div>
+                <h1 class="text-2xl font-bold text-white tracking-tight">Fréjus GBAGUIDI</h1>
+                <p class="text-indigo-400 font-medium">Senior Java Backend Engineer & Cloud Architect</p>
+            </div>
+            <div class="flex gap-4 text-sm font-medium text-slate-400">
+                <a href="mailto:fh.gbaguidi@gmail.com" class="hover:text-indigo-400 flex items-center gap-1 transition-colors">
+                    <span>✉️</span> fh.gbaguidi@gmail.com
+                </a>
+                <span class="hidden sm:inline text-slate-600">|</span>
+                <a href="#" class="hover:text-indigo-400 flex items-center gap-1 transition-colors">
+                    <span>🔗</span> LinkedIn
+                </a>
+                <span class="hidden sm:inline text-slate-600">|</span>
+                <span class="flex items-center gap-1">
+                    <span>📍</span> Lille / Remote
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- Intro Section with Radar Chart -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-slate-800 rounded-2xl p-6 shadow-md border border-slate-700">
+            <div class="lg:col-span-7 space-y-4">
+                <h2 class="text-xl font-bold text-white border-b border-slate-700 pb-2">Vue d'ensemble</h2>
+                <p class="text-slate-300 leading-relaxed text-lg">
+                    Ingénieur logiciel senior avec plus de <strong>12 ans d'expérience</strong>, je suis spécialisé dans la conception d'architectures distribuées résilientes. 
+                    Expert de l'écosystème <strong>Java (25, Spring Boot 3+)</strong>, j'accompagne la modernisation des SI critiques.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div class="bg-indigo-900/30 p-4 rounded-lg border-l-4 border-indigo-500">
+                        <h3 class="font-bold text-indigo-200 mb-1">Architecture Distribuée</h3>
+                        <p class="text-sm text-indigo-300">CQRS, Event Sourcing, DDD, Microservices.</p>
+                    </div>
+                    <div class="bg-emerald-900/30 p-4 rounded-lg border-l-4 border-emerald-500">
+                        <h3 class="font-bold text-emerald-200 mb-1">Modernisation Legacy</h3>
+                        <p class="text-sm text-emerald-300">Réécriture Haskell vers Java, Migration Cloud.</p>
+                    </div>
+                </div>
+                <p class="text-slate-400 text-sm mt-4">
+                    <span class="font-semibold text-slate-300">Objectif :</span> Concevoir des systèmes performants, scalables et maintenables en appliquant les principes du Software Craftsmanship et du GitOps.
+                </p>
+            </div>
+            <div class="lg:col-span-5 flex flex-col items-center justify-center bg-slate-800/50 rounded-xl p-4 border border-slate-700/50">
+                <div class="w-full text-center mb-2 text-sm font-semibold text-slate-400">Profil de Compétences</div>
+                <div class="chart-container">
+                    <canvas id="skillsRadar"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Interactive Section -->
+        <section id="experience-section">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-white">Parcours Professionnel</h2>
+                <p class="text-slate-400">Sélectionnez une mission pour voir les détails techniques, le contexte et les réalisations clés.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-8 bg-slate-800 rounded-2xl shadow-lg border border-slate-700 overflow-hidden min-h-[600px]">
+                
+                <!-- List (Left) -->
+                <div class="lg:col-span-4 bg-slate-900/30 border-r border-slate-700 overflow-y-auto max-h-[600px] custom-scroll" id="exp-list">
+                    <!-- JS will populate list here -->
+                </div>
+
+                <!-- Detail View (Right) -->
+                <div class="lg:col-span-8 p-6 lg:p-8 flex flex-col h-full overflow-y-auto max-h-[600px] custom-scroll relative">
+                    <div id="exp-detail-content" class="space-y-6">
+                        <!-- JS will populate details here -->
+                    </div>
+                    <!-- Architecture Visualizer Placeholder (Only shows for Decathlon) -->
+                    <div id="archi-viz" class="hidden mt-8 pt-8 border-t border-slate-700">
+                        <h3 class="text-lg font-bold text-white mb-4">Architecture Focus : Hive Pattern (CQRS + ES)</h3>
+                        <div class="bg-slate-900 p-6 rounded-xl border border-slate-700 relative h-64 w-full text-xs sm:text-sm overflow-hidden">
+                            <!-- Conceptual Diagram built with HTML/CSS -->
+                            
+                            <!-- Write Model Side -->
+                            <div class="archi-box absolute top-10 left-4 w-32 border-blue-500/50 text-blue-200 shadow-[0_0_10px_rgba(59,130,246,0.1)]">
+                                ⚙️ Command<br>Service (Java)
+                            </div>
+                            
+                            <!-- Event Store -->
+                            <div class="archi-box absolute top-24 left-1/2 transform -translate-x-1/2 w-32 border-amber-500/50 text-amber-200 z-20 shadow-[0_0_10px_rgba(245,158,11,0.1)]">
+                                🐝 Kafka<br>(Event Store)
+                            </div>
+                            
+                            <!-- Read Model Side -->
+                            <div class="archi-box absolute top-10 right-4 w-32 border-emerald-500/50 text-emerald-200 shadow-[0_0_10px_rgba(16,185,129,0.1)]">
+                                📖 Query<br>Service (Read)
+                            </div>
+                            
+                            <!-- Database -->
+                            <div class="archi-box absolute bottom-4 left-1/2 transform -translate-x-1/2 w-40 border-slate-500">
+                                🗄️ Persistence<br>(PostgreSQL/ES)
+                            </div>
+
+                            <!-- Arrows -->
+                            <!-- Command to Kafka -->
+                            <div class="absolute top-16 left-36 w-20 h-1 bg-slate-600 transform rotate-12 origin-left"></div>
+                            <!-- Kafka to Query -->
+                            <div class="absolute top-16 right-36 w-20 h-1 bg-slate-600 transform -rotate-12 origin-right"></div>
+                             <!-- Kafka to DB -->
+                             <div class="absolute top-36 left-1/2 w-1 h-8 bg-slate-600 transform -translate-x-1/2"></div>
+                            
+                            <div class="absolute top-2 left-2 text-slate-500 font-mono text-[10px]">WRITE SIDE</div>
+                            <div class="absolute top-2 right-2 text-slate-500 font-mono text-[10px]">READ SIDE</div>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-2 italic">Représentation simplifiée de la séparation des responsabilités mise en place pour le traitement massif des fiches produits.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Filterable Grid -->
+        <section>
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-white">Tech Stack 2026</h2>
+                    <p class="text-slate-400">Technologies et outils maîtrisés.</p>
+                </div>
+                <!-- Filters -->
+                <div class="flex flex-wrap gap-2" id="tech-filters">
+                    <button class="px-3 py-1 rounded-full text-sm font-medium bg-indigo-600 text-white shadow-lg transition-colors border border-indigo-500" data-filter="all">Tout</button>
+                    <button class="px-3 py-1 rounded-full text-sm font-medium bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-colors" data-filter="Backend">Backend</button>
+                    <button class="px-3 py-1 rounded-full text-sm font-medium bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-colors" data-filter="Architecture">Archi</button>
+                    <button class="px-3 py-1 rounded-full text-sm font-medium bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-colors" data-filter="Cloud">Cloud/DevOps</button>
+                    <button class="px-3 py-1 rounded-full text-sm font-medium bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 transition-colors" data-filter="Data">Data</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4" id="tech-grid">
+                <!-- JS Populated -->
+            </div>
+        </section>
+
+        <!-- Footer / Education -->
+        <footer class="border-t border-slate-700 pt-8 pb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-white mb-4">🎓 Formation</h3>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex gap-3">
+                            <span class="text-slate-500 font-mono">2015</span>
+                            <div>
+                                <div class="font-semibold text-slate-200">Master TIIR (Génie Logiciel)</div>
+                                <div>Université de Lille 1</div>
+                            </div>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-slate-500 font-mono">2013</span>
+                            <div>
+                                <div class="font-semibold text-slate-200">Licence Informatique</div>
+                                <div>Université de Lille 1</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-white mb-4">🌍 Langues & Intérêts</h3>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-xs font-semibold text-slate-300">Français (Natif)</span>
+                        <span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-xs font-semibold text-slate-300">Anglais (Technique)</span>
+                    </div>
+                    <div class="text-sm text-slate-400">
+                        Veille Technologique, Musique, Cuisine, Voyages
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-xs text-slate-500">
+                &copy; 2026 Fréjus GBAGUIDI - Portfolio généré par Assistant IA
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- DATA STORE ---
+        const experienceData = [
+            {
+                id: 'decathlon',
+                role: 'Senior Java Engineer & Architect',
+                company: 'Decathlon Digital',
+                period: 'Nov 2022 - Aujourd\'hui',
+                type: 'Freelance',
+                context: 'Projet stratégique de centralisation du catalogue produit (Traitement de dizaines de milliers de fiches).',
+                highlights: [
+                    '<strong>Modernisation & Réécriture :</strong> Contribution majeure à la réécriture du legacy <strong>Haskell vers Java 25</strong> / Spring Boot 3+.',
+                    '<strong>Architecture Distribuée :</strong> Implémentation du <strong>"Hive Pattern"</strong> (CQRS + Event Sourcing) pour la performance de traitement.',
+                    '<strong>Qualité :</strong> Application stricte du <strong>DDD</strong> et de l\'<strong>Onion Architecture</strong>. Stratégie de tests (TDD, Intégration).',
+                    '<strong>Asynchronisme :</strong> Orchestration via <strong>Kafka</strong>, gestion de la cohérence éventuelle.',
+                    '<strong>Industrialisation :</strong> Pipelines CI/CD modernes, déploiement GitOps sur Kubernetes.'
+                ],
+                stack: ['Java 25', 'Spring Boot 3', 'Kafka', 'CQRS', 'Kubernetes', 'GitOps', 'PostgreSQL'],
+                showArchi: true
+            },
+            {
+                id: 'adeo',
+                role: 'Senior Software Engineer',
+                company: 'ADEO Services',
+                period: 'Mai 2019 - Oct 2022',
+                type: 'Freelance',
+                context: 'Développement et maintenance de solutions backend à l\'échelle du groupe (Leroy Merlin).',
+                highlights: [
+                    'Construction de microservices Java robustes dans un environnement Cloud.',
+                    'Contribution à la stratégie DevOps et automatisation des déploiements.',
+                    'Application des bonnes pratiques de Software Craftsmanship (Code Reviews, Clean Code).'
+                ],
+                stack: ['Java', 'Microservices', 'Cloud', 'DevOps', 'Jenkins'],
+                showArchi: false
+            },
+            {
+                id: 'norauto-lead',
+                role: 'Tech Lead / Lead Developer',
+                company: 'Norauto Int. (BeAPI)',
+                period: 'Sept 2018 - Avril 2019',
+                type: 'CDI',
+                context: 'Transformation digitale et socle API.',
+                highlights: [
+                    'Pilotage de l\'équipe transverse et définition des standards de code.',
+                    'Industrialisation des processus de livraison (CI/CD).',
+                    'Coaching des développeurs et évangélisation Clean Code.'
+                ],
+                stack: ['Leadership', 'CI/CD', 'Java', 'API'],
+                showArchi: false
+            },
+            {
+                id: 'norauto-go',
+                role: 'Backend Engineer (Golang)',
+                company: 'Norauto Int. (BeAPI)',
+                period: 'Janv 2018 - Août 2018',
+                type: 'CDI',
+                context: 'Développement de microservices critiques.',
+                highlights: [
+                    'Conception de microservices en Golang.',
+                    'Sécurité (AppSec) : Implémentation OAuth2/OIDC.',
+                    'Tuning des performances Go.'
+                ],
+                stack: ['Golang', 'OAuth2', 'Microservices'],
+                showArchi: false
+            },
+            {
+                id: 'norauto-archi',
+                role: 'Architecte Technique Ecommerce',
+                company: 'Norauto Int.',
+                period: 'Août 2017 - Déc 2017',
+                type: 'CDI',
+                context: 'Audit et stratégie technique.',
+                highlights: [
+                    'Analyse de la dette technique.',
+                    'Amélioration de la Developer Experience (DX).',
+                    'Roadmap de refactoring.'
+                ],
+                stack: ['Audit', 'Architecture', 'Performance'],
+                showArchi: false
+            },
+            {
+                id: 'norauto-devops',
+                role: 'Lead Developer & DevOps',
+                company: 'Norauto Int.',
+                period: 'Janv 2017 - Juil 2017',
+                type: 'CDI',
+                context: 'Observabilité et Run.',
+                highlights: [
+                    'Mise en place de la stack ELK pour les logs.',
+                    'Supervision de la stabilité de la plateforme Ecommerce.'
+                ],
+                stack: ['ELK Stack', 'Monitoring', 'Java'],
+                showArchi: false
+            },
+            {
+                id: 'norauto-dev',
+                role: 'Software Engineer (Java)',
+                company: 'Norauto Int.',
+                period: 'Sept 2015 - Déc 2016',
+                type: 'CDI',
+                context: 'Développement modules e-commerce.',
+                highlights: [
+                    'Développement Java/J2EE.',
+                    'Outils de suivi marketing temps réel.'
+                ],
+                stack: ['Java', 'J2EE', 'Marketing Tools'],
+                showArchi: false
+            }
+        ];
+
+        const techSkills = [
+            { name: 'Java 25', category: 'Backend', level: 'Expert' },
+            { name: 'Spring Boot 3+', category: 'Backend', level: 'Expert' },
+            { name: 'JPA/Hibernate', category: 'Backend', level: 'Expert' },
+            { name: 'CQRS / Event Sourcing', category: 'Architecture', level: 'Expert' },
+            { name: 'Onion / Clean Archi', category: 'Architecture', level: 'Expert' },
+            { name: 'Kafka', category: 'Data', level: 'Expert' },
+            { name: 'Kubernetes', category: 'Cloud', level: 'Advanced' },
+            { name: 'GitOps (ArgoCD)', category: 'Cloud', level: 'Advanced' },
+            { name: 'Docker', category: 'Cloud', level: 'Advanced' },
+            { name: 'GitHub Actions', category: 'Cloud', level: 'Advanced' },
+            { name: 'Terraform', category: 'Cloud', level: 'Intermediate' },
+            { name: 'PostgreSQL', category: 'Data', level: 'Advanced' },
+            { name: 'Elasticsearch/OpenSearch', category: 'Data', level: 'Advanced' },
+            { name: 'TDD / BDD', category: 'Methodology', level: 'Expert' },
+            { name: 'DDD', category: 'Methodology', level: 'Expert' },
+        ];
+
+        // --- CHART.JS CONFIG ---
+        const initChart = () => {
+            const ctx = document.getElementById('skillsRadar').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Backend Java', 'Cloud & DevOps', 'Architecture Distribuée', 'Data & Messaging', 'Leadership Tech'],
+                    datasets: [{
+                        label: 'Niveau d\'expertise',
+                        data: [10, 8.5, 9.5, 8, 8],
+                        backgroundColor: 'rgba(99, 102, 241, 0.2)', // Indigo 500 with opacity
+                        borderColor: '#818cf8', // Indigo 400
+                        pointBackgroundColor: '#818cf8',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#818cf8'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#334155' }, // Slate 700
+                            grid: { color: '#334155' }, // Slate 700
+                            pointLabels: {
+                                font: { size: 12, family: 'Inter', weight: '600' },
+                                color: '#94a3b8' // Slate 400
+                            },
+                            ticks: { display: false, max: 10, min: 0, backdropColor: 'transparent' }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        };
+
+        // --- UI LOGIC ---
+
+        const renderExperienceList = () => {
+            const listContainer = document.getElementById('exp-list');
+            listContainer.innerHTML = '';
+            
+            experienceData.forEach((item, index) => {
+                const el = document.createElement('div');
+                el.className = `timeline-item p-4 border-l-4 border-transparent cursor-pointer hover:bg-slate-700 transition-colors ${index === 0 ? 'active' : ''}`;
+                el.onclick = () => selectExperience(index);
+                el.innerHTML = `
+                    <div class="text-xs font-semibold text-slate-500 mb-1 uppercase tracking-wider">${item.period}</div>
+                    <div class="font-bold text-slate-200 text-sm">${item.role}</div>
+                    <div class="text-sm text-indigo-400">${item.company}</div>
+                `;
+                listContainer.appendChild(el);
+            });
+        };
+
+        const selectExperience = (index) => {
+            // Update active state in list
+            const listItems = document.querySelectorAll('.timeline-item');
+            listItems.forEach(i => i.classList.remove('active'));
+            listItems[index].classList.add('active');
+
+            // Update details
+            const data = experienceData[index];
+            const contentContainer = document.getElementById('exp-detail-content');
+            
+            contentContainer.innerHTML = `
+                <div class="flex justify-between items-start border-b border-slate-700 pb-4">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">${data.role}</h3>
+                        <div class="text-lg text-indigo-400 font-medium">${data.company} <span class="text-slate-500 text-sm font-normal">• ${data.type}</span></div>
+                    </div>
+                    <div class="bg-slate-700 px-3 py-1 rounded text-slate-300 text-sm font-semibold border border-slate-600">${data.period}</div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">🎯 Contexte</h4>
+                    <p class="text-slate-400">${data.context}</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-200 mb-2 flex items-center gap-2">🚀 Réalisations Clés</h4>
+                    <ul class="space-y-2">
+                        ${data.highlights.map(h => `<li class="flex gap-2 text-slate-400 text-sm"><span class="text-indigo-500 mt-1">▹</span><span>${h}</span></li>`).join('')}
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-200 mb-2">🛠️ Stack Technique</h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${data.stack.map(s => `<span class="px-2 py-1 bg-slate-800 border border-slate-700 rounded text-xs font-medium text-slate-300 shadow-sm hover:border-indigo-500 transition-colors cursor-default">${s}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+
+            // Toggle Arch Diagram
+            const archiViz = document.getElementById('archi-viz');
+            if (data.showArchi) {
+                archiViz.classList.remove('hidden');
+                // Scroll diagram into view smoothly after short delay
+                setTimeout(() => archiViz.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+            } else {
+                archiViz.classList.add('hidden');
+            }
+        };
+
+        const renderTechGrid = (filter = 'all') => {
+            const grid = document.getElementById('tech-grid');
+            grid.innerHTML = '';
+            
+            const filteredSkills = filter === 'all' 
+                ? techSkills 
+                : techSkills.filter(s => {
+                    if (filter === 'Cloud') return ['Cloud', 'Methodology'].includes(s.category); // Loose grouping
+                    return s.category === filter;
+                });
+
+            filteredSkills.forEach(skill => {
+                const el = document.createElement('div');
+                let colorClass = 'border-l-indigo-500';
+                if(skill.category === 'Architecture') colorClass = 'border-l-amber-500';
+                if(skill.category === 'Data') colorClass = 'border-l-emerald-500';
+                if(skill.category === 'Cloud') colorClass = 'border-l-sky-500';
+
+                el.className = `tech-tag bg-slate-800 p-3 rounded shadow-sm border border-slate-700 border-l-4 ${colorClass} flex flex-col justify-center items-center text-center h-24`;
+                el.innerHTML = `
+                    <span class="font-bold text-slate-200 text-sm">${skill.name}</span>
+                    <span class="text-xs text-slate-500 mt-1">${skill.category}</span>
+                `;
+                grid.appendChild(el);
+            });
+        };
+
+        // --- INIT ---
+        window.onload = () => {
+            initChart();
+            renderExperienceList();
+            selectExperience(0); // Select Decathlon by default
+            renderTechGrid();
+
+            // Filter Event Listeners
+            document.querySelectorAll('#tech-filters button').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // Update active button style
+                    document.querySelectorAll('#tech-filters button').forEach(b => {
+                        b.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-500');
+                        b.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
+                    });
+                    e.target.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
+                    e.target.classList.add('bg-indigo-600', 'text-white', 'border-indigo-500');
+                    
+                    renderTechGrid(e.target.dataset.filter);
+                });
+            });
+        };
+
+    </script>
+</body>
+</html>
