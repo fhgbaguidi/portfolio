@@ -34,18 +34,23 @@
             background: #1e293b; /* Slate-800 */
             border: 2px solid #334155; /* Slate-700 */
             border-radius: 8px; 
-            padding: 10px; 
+            padding: 8px; 
             text-align: center; 
             font-weight: 600; 
             box-shadow: 0 4px 6px rgba(0,0,0,0.2); 
             position: absolute; 
             z-index: 10; 
             color: #f1f5f9;
-            width: 140px;
+            width: 130px;
             font-size: 0.75rem; /* text-xs */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 60px;
         }
         @media (min-width: 640px) {
-            .archi-box { font-size: 0.875rem; /* text-sm */ }
+            .archi-box { font-size: 0.875rem; /* text-sm */ width: 140px; }
         }
     </style>
 </head>
@@ -129,7 +134,7 @@
                     <!-- Architecture Visualizer Placeholder (Only shows for Decathlon) -->
                     <div id="archi-viz" class="hidden mt-8 pt-8 border-t border-slate-700">
                         <h3 class="text-lg font-bold text-white mb-4">Architecture Focus : CQRS + CDC (Outbox Pattern)</h3>
-                        <div class="bg-slate-900 p-6 rounded-xl border border-slate-700 relative h-72 w-full overflow-hidden select-none">
+                        <div class="bg-slate-900 p-6 rounded-xl border border-slate-700 relative h-96 w-full overflow-hidden select-none">
                             <!-- Conceptual Diagram for CDC Flow -->
                             
                             <!-- 1. Command Service (Write) -->
@@ -139,39 +144,59 @@
                             
                             <!-- 2. PostgreSQL (Source) -->
                             <div class="archi-box border-slate-400 text-slate-200" style="bottom: 20px; left: 20px;">
-                                🗄️ PostgreSQL<br>(Transaction Log)
+                                🗄️ PostgreSQL<br>(Source)
                             </div>
                             
-                            <!-- 3. Kafka (Bus) -->
-                            <div class="archi-box border-amber-500/50 text-amber-200 z-20 shadow-[0_0_10px_rgba(245,158,11,0.1)]" style="bottom: 20px; left: 50%; transform: translateX(-50%);">
+                            <!-- 3. Kafka (Bus) - Centered -->
+                            <div class="archi-box border-amber-500/50 text-amber-200 z-20 shadow-[0_0_10px_rgba(245,158,11,0.1)]" style="bottom: 20px; left: 35%;">
                                 🐝 Kafka<br>(Event Bus)
                             </div>
                             
-                            <!-- 4. Query Service (Read) -->
+                            <!-- 4. Read DB (New) -->
+                            <div class="archi-box border-emerald-500/50 text-emerald-200" style="top: 130px; right: 20px;">
+                                🗄️ Read DB<br>(Projection)
+                            </div>
+
+                            <!-- 5. Query Service (Read) -->
                             <div class="archi-box border-emerald-500/50 text-emerald-200 shadow-[0_0_10px_rgba(16,185,129,0.1)]" style="top: 20px; right: 20px;">
                                 📖 Query Svc<br>(Read Model)
+                            </div>
+
+                            <!-- 6. External Consumers (New) -->
+                            <div class="archi-box border-indigo-500/50 text-indigo-200 border-dashed" style="bottom: 20px; right: 20px;">
+                                ⚡ Ext. Consumers<br>(Autres Domains)
                             </div>
 
                             <!-- Arrows -->
                             
                             <!-- Cmd -> PG (Vertical Down) -->
-                            <div class="absolute w-1 bg-slate-600" style="height: 60px; top: 80px; left: 90px;"></div>
-                            <div class="absolute text-[10px] text-slate-500 font-mono" style="top: 90px; left: 95px;">ACID Tx</div>
+                            <div class="absolute w-0.5 bg-slate-600" style="height: 60px; top: 90px; left: 90px;"></div>
+                            <!-- Arrowhead -->
+                            <div class="absolute w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[8px] border-t-slate-600" style="top: 150px; left: 86px;"></div>
 
-                            <!-- PG -> Kafka (Horizontal Right) - The CDC Link -->
-                            <div class="absolute h-1 bg-amber-500/50" style="width: 25%; bottom: 50px; left: 170px;"></div>
-                            <div class="absolute h-0 w-0 border-y-4 border-y-transparent border-l-[8px] border-l-amber-500/50" style="bottom: 46px; left: calc(20px + 25% + 145px);"></div> <!-- Arrowhead approximation -->
-                            <div class="absolute bg-slate-800 px-1 rounded border border-amber-500/30 text-[10px] text-amber-300 font-mono font-bold" style="bottom: 55px; left: 25%;">CDC / Debezium</div>
+                            <!-- PG -> Kafka (Horizontal Right CDC) -->
+                            <div class="absolute h-0.5 bg-amber-500/50" style="width: 15%; bottom: 50px; left: 165px;"></div>
+                            <div class="absolute w-0 h-0 border-y-[4px] border-y-transparent border-l-[8px] border-l-amber-500/50" style="bottom: 46px; left: calc(165px + 15%);"></div>
+                            <div class="absolute bg-slate-800 px-1 rounded border border-amber-500/30 text-[10px] text-amber-300 font-mono font-bold" style="bottom: 55px; left: 20%;">CDC / Debezium</div>
 
-                            <!-- Kafka -> Query (Diagonal Up-Right) -->
-                            <div class="absolute w-1 bg-slate-600" style="height: 100px; bottom: 80px; right: 90px; transform: rotate(-30deg); transform-origin: bottom;"></div>
-                            <div class="absolute text-[10px] text-slate-500 font-mono" style="top: 100px; right: 110px;">Consumer</div>
+                            <!-- Kafka -> Projector/Read DB (Curved or Angled) -->
+                            <div class="absolute w-0.5 bg-slate-600 origin-bottom" style="height: 80px; bottom: 80px; left: 45%; transform: rotate(35deg);"></div>
+                            <div class="absolute w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-b-[8px] border-b-slate-600" style="bottom: 155px; left: 52%; transform: rotate(35deg);"></div>
+                            <div class="absolute text-[10px] text-slate-500 font-mono" style="bottom: 120px; left: 50%;">Projector</div>
+
+                            <!-- Kafka -> External Consumers -->
+                            <div class="absolute h-0.5 bg-slate-600" style="width: 12%; bottom: 50px; right: 165px;"></div>
+                            <div class="absolute w-0 h-0 border-y-[4px] border-y-transparent border-l-[8px] border-l-slate-600" style="bottom: 46px; right: 158px;"></div>
+
+                            <!-- Query Svc -> Read DB (Read action) -->
+                            <div class="absolute w-0.5 bg-slate-600" style="height: 40px; top: 90px; right: 90px;"></div>
+                            <div class="absolute w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[8px] border-t-slate-600" style="top: 130px; right: 86px;"></div>
                             
                             <!-- Labels -->
                             <div class="absolute top-2 left-2 text-slate-500 font-mono text-[10px]">WRITE SIDE</div>
                             <div class="absolute top-2 right-2 text-slate-500 font-mono text-[10px]">READ SIDE</div>
                         </div>
-                        <p class="text-xs text-slate-500 mt-2 italic">Architecture réactive où PostgreSQL agit comme source de vérité. Les changements sont capturés (CDC) et propagés via Kafka pour mettre à jour les modèles de lecture en temps réel.</p>
+                        <p class="text-xs text-slate-500 mt-2 italic">Architecture réactive complète : PostgreSQL est la source de vérité. Les données sont propagées via CDC vers Kafka, puis projetées dans une base de lecture pour le Query Service et consommées par d'autres domaines.</p>
                     </div>
                 </div>
             </div>
@@ -252,7 +277,7 @@
                 highlights: [
                     '<strong>Modernisation & Réécriture :</strong> Contribution majeure à la réécriture du legacy <strong>Haskell vers Java 25</strong> / Spring Boot 3+.',
                     '<strong>Architecture Event-Driven :</strong> Mise en place de <strong>CDC (Change Data Capture)</strong> sur PostgreSQL pour propulser les événements vers Kafka.',
-                    '<strong>Pattern Outbox & CQRS :</strong> Séparation des modèles (Write/Read) et garantie de la cohérence des données via propagation asynchrone.',
+                    '<strong>Pattern Outbox & CQRS :</strong> Séparation des modèles (Write/Read). Le Query Service consomme une base de projection dédiée alimentée par Kafka.',
                     '<strong>Qualité :</strong> Application stricte du <strong>DDD</strong> et de l\'<strong>Onion Architecture</strong>. Stratégie de tests (TDD).',
                     '<strong>Industrialisation :</strong> Pipelines CI/CD modernes, déploiement GitOps sur Kubernetes.'
                 ],
