@@ -361,7 +361,6 @@
             const canvas = document.getElementById('skillsRadar');
             const ctx = canvas.getContext('2d');
             
-            // CRITICAL FIX: Destroy existing chart instance if it exists to prevent double rendering/tooltips
             const existingChart = Chart.getChart(canvas);
             if (existingChart) {
                 existingChart.destroy();
@@ -375,7 +374,7 @@
                     labels: ['Backend Java', 'Cloud & DevOps', 'Architecture Distribuée', 'Data & Messaging', 'Leadership Tech'],
                     datasets: [{
                         label: 'Niveau d\'expertise',
-                        data: [9, 8.5, 9, 8.5, 7]],
+                        data: [9, 8.5, 9, 8.5, 7],
                         backgroundColor: 'rgba(99, 102, 241, 0.2)', 
                         borderColor: '#818cf8', 
                         pointBackgroundColor: '#818cf8',
