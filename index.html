@@ -388,13 +388,15 @@
                     maintainAspectRatio: false,
                     scales: {
                         r: {
+                            min: 0,
+                            max: 10, 
                             angleLines: { color: '#334155' }, 
                             grid: { color: '#334155' }, 
                             pointLabels: {
                                 font: { size: 12, family: 'Inter', weight: '600' },
                                 color: '#94a3b8' 
                             },
-                            ticks: { display: false, max: 10, min: 0, backdropColor: 'transparent' }
+                            ticks: { display: false, backdropColor: 'transparent' }
                         }
                     },
                     plugins: {
