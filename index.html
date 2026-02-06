@@ -58,14 +58,25 @@
 
     <!-- Header / Nav -->
     <header class="bg-slate-800 shadow-lg border-b border-slate-700 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center flex-wrap gap-4">
-            <div>
-                <h1 class="text-2xl font-bold text-white tracking-tight">Fréjus GBAGUIDI</h1>
-                <p class="text-indigo-400 font-medium">Senior Java Backend Engineer & Cloud Developer</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center flex-wrap gap-4">
+            <div class="flex items-center gap-4">
+                <!-- Avatar moved here -->
+                <div class="relative group shrink-0">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+                    <img src="https://avatars.githubusercontent.com/u/9200168?s=400&u=2f274890097cd58ca8681a9d8a2cf9be264de5f3&v=4" 
+                         alt="FG" 
+                         class="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-slate-700 shadow-lg object-cover bg-slate-700">
+                </div>
+                
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-white tracking-tight leading-tight">Fréjus GBAGUIDI</h1>
+                    <p class="text-indigo-400 font-medium text-xs sm:text-sm">Senior Java Backend Engineer & Cloud Developer</p>
+                </div>
             </div>
+
             <div class="flex gap-4 text-sm font-medium text-slate-400">
                 <a href="mailto:fh.gbaguidi@gmail.com" class="hover:text-indigo-400 flex items-center gap-1 transition-colors">
-                    <span>✉️</span> fh.gbaguidi@gmail.com
+                    <span>✉️</span> <span class="hidden sm:inline">fh.gbaguidi@gmail.com</span>
                 </a>
                 <span class="hidden sm:inline text-slate-600">|</span>
                 <a href="https://www.linkedin.com/in/fgbaguidi" target="_blank" class="hover:text-indigo-400 flex items-center gap-1 transition-colors">
@@ -73,7 +84,7 @@
                 </a>
                 <span class="hidden sm:inline text-slate-600">|</span>
                 <span class="flex items-center gap-1">
-                    <span>📍</span> Lille / Remote / Hybrid
+                    <span>📍</span> <span class="hidden sm:inline">Lille / Remote / Hybrid</span>
                 </span>
             </div>
         </div>
@@ -84,7 +95,11 @@
         <!-- Intro Section with Radar Chart -->
         <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-slate-800 rounded-2xl p-6 shadow-md border border-slate-700">
             <div class="lg:col-span-7 space-y-4">
-                <h2 class="text-xl font-bold text-white border-b border-slate-700 pb-2">Vue d'ensemble</h2>
+                
+                <div class="flex flex-col items-start gap-2 mb-2">
+                    <h2 class="text-xl font-bold text-white border-b border-slate-700 pb-2 w-full">Vue d'ensemble</h2>
+                </div>
+
                 <p class="text-slate-300 leading-relaxed text-lg">
                     Ingénieur logiciel senior avec plus de <strong>10 ans d'expérience</strong>, je suis spécialisé dans la conception d'architectures distribuées résilientes. 
                     Expert de l'écosystème <strong>Java (25, Spring Boot 3+)</strong>, j'accompagne la modernisation des SI critiques.
