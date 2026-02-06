@@ -252,7 +252,7 @@
                 company: 'ADEO Services',
                 period: 'Mai 2019 - Oct 2022',
                 type: 'Freelance',
-                context: 'Développement et maintenance de solutions backend à l\'échelle du groupe (Leroy Merlin).',
+                context: 'Développement et maintenance de solutions backend à l\'échelle du groupe (Leroy Merlin, etc.).',
                 highlights: [
                     'Construction de microservices Java robustes dans un environnement Cloud.',
                     'Contribution à la stratégie DevOps et automatisation des déploiements.',
@@ -355,24 +355,24 @@
         ];
 
         // --- CHART.JS CONFIG ---
-        // Store chart instance globally to prevent duplication on re-renders
-        let myRadarChart = null;
         
         const initChart = () => {
-            const ctx = document.getElementById('skillsRadar').getContext('2d');
+            const canvas = document.getElementById('skillsRadar');
+            const ctx = canvas.getContext('2d');
             
-            // Clean up existing chart to prevent double tooltips/rendering
-            if (myRadarChart) {
-                myRadarChart.destroy();
+            // CRITICAL FIX: Destroy existing chart instance if it exists to prevent double rendering/tooltips
+            const existingChart = Chart.getChart(canvas);
+            if (existingChart) {
+                existingChart.destroy();
             }
 
-            myRadarChart = new Chart(ctx, {
+            new Chart(ctx, {
                 type: 'radar',
                 data: {
                     labels: ['Backend Java', 'Cloud & DevOps', 'Architecture Distribuée', 'Data & Messaging', 'Leadership Tech'],
                     datasets: [{
                         label: 'Niveau d\'expertise',
-                        // UPDATED VALUES: Increased Data/Cloud/Leadership to reflect Senior status better
+                        // UPDATED VALUES based on Senior profile
                         data: [10, 9, 9.5, 8.5, 9], 
                         backgroundColor: 'rgba(99, 102, 241, 0.2)', 
                         borderColor: '#818cf8', 
