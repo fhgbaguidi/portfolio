@@ -7,7 +7,6 @@
 \moderncvcolor{blue} % Initialisation obligatoire
 
 % OVERRIDE COULEUR (INDIGO PORTFOLIO #4F46E5)
-% Placé APRES \moderncvcolor pour garantir l'application
 \usepackage{xcolor}
 \definecolor{color1}{HTML}{4F46E5} 
 
@@ -20,12 +19,12 @@
 % DONNÉES PERSONNELLES
 % ----------------------------------------------------------------------------------
 \name{Fréjus}{GBAGUIDI}
-\title{Senior Java Backend Engineer \& Cloud Architect}
+\title{Senior Java Backend Engineer \& Cloud Developer}
 \address{Lille, France (Ouvert au Remote)}{}{Freelance}
 \phone[mobile]{+33 6 50 27 94 29}
 \email{fh.gbaguidi@gmail.com}
-\social[linkedin]{fhgbaguidi}
-\social[github]{fgbaguidi}
+\social[linkedin]{fgbaguidi}
+\social[github]{fhgbaguidi}
 \extrainfo{Portfolio: \href{https://fhgbaguidi.github.io/portfolio/}{fhgbaguidi.github.io/portfolio}}
 
 % ----------------------------------------------------------------------------------
@@ -37,27 +36,27 @@
 
 % Profil
 \section{Profil}
-\cvitem{}{Ingénieur logiciel senior avec plus de \textbf{10 ans d'expérience}, expert en écosystème \textbf{Java} et architectures distribuées. Spécialiste des architectures événementielles (\textbf{CQRS, CDC, Kafka}) et du \textbf{Clean Architecture}, j'accompagne les entreprises dans la modernisation de leur SI et l'industrialisation de leurs déploiements (\textbf{GitOps, Kubernetes}). Capacité éprouvée à concevoir des systèmes résilients traitant de forts volumes de données.}
+\cvitem{}{Ingénieur logiciel senior avec plus de \textbf{10 ans d'expérience}, je suis spécialisé dans la conception d'architectures distribuées résilientes. Expert de l'écosystème \textbf{Java (25, Spring Boot 3+)}, j'accompagne la modernisation des SI critiques. Je conçois des systèmes performants, scalables et maintenables en appliquant les principes du Software Craftsmanship et du GitOps.}
 
-% Compétences Techniques (Strictement aligné sur Portfolio 'skillsData' + 'stack')
+% Compétences Techniques (Strictement aligné sur Portfolio HTML)
 \section{Compétences Techniques (Stack 2026)}
 \cvitem{\textbf{Backend}}{\textbf{Java 25}, Spring Boot 3+, JPA/Hibernate}
 \cvitem{\textbf{Architecture}}{\textbf{CQRS}, \textbf{CDC (Change Data Capture)}, Onion/Clean Architecture, Microservices, DDD}
 \cvitem{\textbf{Data \& Msg}}{\textbf{Kafka}, \textbf{Debezium}, PostgreSQL, Elasticsearch}
-\cvitem{\textbf{Cloud \& Ops}}{\textbf{Kubernetes}, \textbf{GitOps}, Docker, GitHub Actions, Terraform, GCP}
-\cvitem{\textbf{Methodology}}{TDD / BDD, Software Craftsmanship, Code Review}
+\cvitem{\textbf{Cloud \& Ops}}{\textbf{Kubernetes}, \textbf{GitOps (ArgoCD)}, Docker, GitHub Actions, Terraform, GCP}
+\cvitem{\textbf{Methodology}}{TDD / BDD, Software Craftsmanship, Code Review, \textbf{Jira}}
 
 % Expériences
 \section{Expériences Professionnelles}
 
-\cventry{Nov 2022 -- Présent}{Senior Java Engineer}{Decathlon Digital}{Lille / Hybride}{}{
-\textbf{Contexte :} Centralisation du catalogue produit (Traitement massif de données).
+\cventry{Nov 2022 -- Présent}{Senior Java Engineer}{Decathlon United (International)}{Lille / Hybride}{}{
+\textbf{Contexte :} Centralisation du catalogue produit pour l'ensemble des pays (United). Outil central alimentant l'Ecommerce et les Magasins.
 \begin{itemize}
+    \item \textbf{Stratégie Data :} Centralisation, uniformisation et structuration du catalogue produit mondial. \textbf{Enrichissement et mise à disposition de plusieurs centaines de millions de fiches produits aux différents canaux.} Garantie de l'intégrité automatisée via écoute de référentiels externes.
     \item \textbf{Modernisation :} Réécriture complète du legacy Haskell vers \textbf{Java 25} \& Spring Boot 3+.
-    \item \textbf{Architecture Réactive :} Implémentation de \textbf{CDC (Change Data Capture)} avec Debezium sur PostgreSQL pour alimenter Kafka en temps réel.
-    \item \textbf{Resilience :} Mise en place du pattern \textbf{Transactional Outbox} pour garantir la cohérence des données (CQRS).
-    \item \textbf{Qualité :} Application stricte du \textbf{DDD} et de l'Onion Architecture. Stratégie de tests.
-    \item \textbf{Ops :} Pipelines CI/CD modernes et déploiement \textbf{GitOps} sur Kubernetes.
+    \item \textbf{Architecture Event-Driven :} Implémentation de \textbf{CDC (Change Data Capture)} avec Debezium sur PostgreSQL pour alimenter Kafka en temps réel.
+    \item \textbf{Resilience :} Mise en place du pattern \textbf{Transactional Outbox} pour garantir la cohérence des données (CQRS). Le Query Service consomme une base de projection dédiée.
+    \item \textbf{Ops :} Pipelines CI/CD modernes et déploiement \textbf{GitOps} sur Kubernetes. Suivi via \textbf{Jira}.
 \end{itemize}}
 
 \cventry{Mai 2019 -- Oct 2022}{Senior Software Engineer}{ADEO Services}{Lille}{}{
@@ -65,7 +64,7 @@
 \begin{itemize}
     \item Construction de microservices Java robustes dans un environnement Cloud (GCP).
     \item Contribution à la stratégie DevOps : automatisation des tests et des déploiements.
-    \item Application des bonnes pratiques de Software Craftsmanship (Code Reviews, Clean Code).
+    \item Application des bonnes pratiques de Software Craftsmanship et gestion via \textbf{Jira}.
 \end{itemize}}
 
 \cventry{Sept 2018 -- Avr 2019}{Tech Lead / Lead Developer}{Norauto International (BeAPI)}{Lille}{}{
@@ -102,7 +101,7 @@
 
 % Formation
 \section{Formation}
-\cventry{2013 -- 2015}{Master TIIR (Génie Logiciel)}{Université de Lille 1}{Lille}{}{}
+\cventry{2013 -- 2015}{Master TIIR (Technologies de l'Information et Ingénierie du Web et Réseau)}{Université de Lille 1}{Lille}{}{}
 \cventry{2012 -- 2013}{Licence Informatique}{Université de Lille 1}{Lille}{}{}
 \cventry{2008 -- 2011}{Licence Informatique (MIAGE) \& DUT GTR}{UPIB}{Cotonou}{}{}
 
