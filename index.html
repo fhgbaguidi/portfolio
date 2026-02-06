@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fréjus GBAGUIDI - Senior Backend Engineer</title>
+    <title>Fréjus GBAGUIDI - Freelance Java Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- FontAwesome for Brand Icons -->
@@ -54,6 +54,16 @@
         @media (min-width: 640px) {
             .archi-box { font-size: 0.875rem; /* text-sm */ width: 140px; }
         }
+
+        /* Pulse Animation for Status Dot */
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .status-pulse {
+            animation: pulse-green 2s infinite;
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-200 antialiased">
@@ -62,16 +72,31 @@
     <header class="bg-slate-800 shadow-lg border-b border-slate-700 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center flex-wrap gap-4">
             <div class="flex items-center gap-4">
-                <!-- Avatar -->
+                <!-- Avatar with Open-to-Work Ring -->
                 <div class="relative group shrink-0">
-                    <div class="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+                    <!-- Green Glow for Open To Work -->
+                    <div class="absolute -inset-0.5 rounded-full bg-emerald-500 opacity-40 blur-sm group-hover:opacity-75 transition duration-500"></div>
                     <img src="https://avatars.githubusercontent.com/u/9200168?s=400&u=2f274890097cd58ca8681a9d8a2cf9be264de5f3&v=4" 
                          alt="FG" 
-                         class="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-slate-700 shadow-lg object-cover bg-slate-700">
+                         class="relative w-12 h-12 sm:w-16 sm:h-16 rounded-full border-[3px] border-emerald-500 shadow-lg object-cover bg-slate-700 cursor-pointer">
+                    <!-- Status Dot -->
+                    <div class="absolute bottom-0 right-0 w-3 h-3 sm:w-4 sm:h-4 bg-emerald-500 border-2 border-slate-800 rounded-full z-20 status-pulse" title="Open to Work"></div>
                 </div>
                 
                 <div>
-                    <h1 class="text-xl sm:text-2xl font-bold text-white tracking-tight leading-tight">Fréjus GBAGUIDI</h1>
+                    <div class="flex flex-wrap items-center gap-2 mb-0.5">
+                        <h1 class="text-xl sm:text-2xl font-bold text-white tracking-tight leading-tight">Fréjus GBAGUIDI</h1>
+                        
+                        <!-- BADGES: FREELANCE & OPEN TO WORK -->
+                        <div class="flex gap-1.5">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                                Freelance
+                            </span>
+                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                Open to Work
+                            </span>
+                        </div>
+                    </div>
                     <p class="text-indigo-400 font-medium text-xs sm:text-sm">Senior Java Backend Engineer & Cloud Developer</p>
                 </div>
             </div>
@@ -92,7 +117,7 @@
                 <span class="hidden sm:inline text-slate-600">|</span>
 
                 <!-- GitHub (New) -->
-                <a href="https://github.com/fhgbaguidi" target="_blank" class="hover:text-indigo-400 flex items-center gap-2 transition-colors">
+                <a href="https://github.com/fgbaguidi" target="_blank" class="hover:text-indigo-400 flex items-center gap-2 transition-colors">
                     <i class="fa-brands fa-github text-lg"></i> <span class="hidden sm:inline">GitHub</span>
                 </a>
                 
@@ -100,7 +125,7 @@
                 
                 <!-- Location -->
                 <span class="flex items-center gap-2">
-                    <i class="fa-solid fa-location-dot"></i> <span class="hidden sm:inline">Lille / Remote / Hybrid</span>
+                    <i class="fa-solid fa-location-dot"></i> <span class="hidden sm:inline">Lille / Remote</span>
                 </span>
             </div>
         </div>
@@ -263,21 +288,6 @@
                 showArchi: false
             },
             {
-                id: 'adeo',
-                role: 'Senior Software Engineer',
-                company: 'ADEO Services',
-                period: 'Mai 2019 - Oct 2022',
-                type: 'Freelance',
-                context: 'Développement et maintenance de solutions backend à l\'échelle du groupe (Leroy Merlin, etc.).',
-                highlights: [
-                    'Construction de microservices Java robustes dans un environnement Cloud.',
-                    'Contribution à la stratégie DevOps et automatisation des déploiements.',
-                    'Application des bonnes pratiques de Software Craftsmanship (Code Reviews, Clean Code).'
-                ],
-                stack: ['Java', 'Golang', 'Microservices', 'Cloud', 'DevOps', 'Jenkins'],
-                showArchi: false
-            },
-            {
                 id: 'norauto-lead',
                 role: 'Tech Lead / Lead Developer',
                 company: 'Norauto Int. (BeAPI)',
@@ -338,7 +348,7 @@
             },
             {
                 id: 'norauto-dev',
-                role: 'Software Engineer (Java)',
+                role: 'Software Engineer',
                 company: 'Norauto Int.',
                 period: 'Sept 2015 - Déc 2016',
                 type: 'CDI',
@@ -363,7 +373,7 @@
             { name: 'GitOps', category: 'Cloud', level: 'Advanced' },
             { name: 'Docker', category: 'Cloud', level: 'Advanced' },
             { name: 'GitHub Actions', category: 'Cloud', level: 'Expert' },
-            { name: 'Jira', category: 'Methodology', level: 'Expert' }, // Added Jira
+            { name: 'Jira', category: 'Methodology', level: 'Expert' },
             { name: 'Terraform', category: 'Cloud', level: 'Intermediate' },
             { name: 'PostgreSQL', category: 'Data', level: 'Advanced' },
             { name: 'Elasticsearch/OpenSearch', category: 'Data', level: 'Advanced' },
@@ -377,12 +387,11 @@
             const canvas = document.getElementById('skillsRadar');
             const ctx = canvas.getContext('2d');
             
+            // CRITICAL FIX: Destroy existing chart instance if it exists to prevent double rendering/tooltips
             const existingChart = Chart.getChart(canvas);
             if (existingChart) {
                 existingChart.destroy();
             }
-
-            console.log("Données chargées :", [9, 8.5, 9, 8.5, 7]);
 
             new Chart(ctx, {
                 type: 'radar',
@@ -390,7 +399,8 @@
                     labels: ['Backend Java', 'Cloud & DevOps', 'Architecture Distribuée', 'Data & Messaging', 'Leadership Tech'],
                     datasets: [{
                         label: 'Niveau d\'expertise',
-                        data: [9, 8.5, 9, 8.5, 7],
+                        // UPDATED VALUES based on Senior profile
+                        data: [9.5, 8.5, 9.5, 8.5, 8], 
                         backgroundColor: 'rgba(99, 102, 241, 0.2)', 
                         borderColor: '#818cf8', 
                         pointBackgroundColor: '#818cf8',
