@@ -125,8 +125,8 @@
                     <!-- JS will populate list here -->
                 </div>
 
-                <!-- Detail View (Right) -->
-                <div class="lg:col-span-8 p-6 lg:p-8 flex flex-col h-full overflow-y-auto max-h-[600px] custom-scroll relative">
+                <!-- Detail View (Right) - Added ID for scrolling control -->
+                <div id="exp-detail-wrapper" class="lg:col-span-8 p-6 lg:p-8 flex flex-col h-full overflow-y-auto max-h-[600px] custom-scroll relative">
                     <div id="exp-detail-content" class="space-y-6">
                         <!-- JS will populate details here -->
                     </div>
@@ -503,10 +503,15 @@
             const archiViz = document.getElementById('archi-viz');
             if (data.showArchi) {
                 archiViz.classList.remove('hidden');
-                // Scroll diagram into view smoothly after short delay
-                setTimeout(() => archiViz.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
             } else {
                 archiViz.classList.add('hidden');
+            }
+
+            // FORCE SCROLL TO TOP OF DETAIL VIEW
+            // This ensures the title and context are always seen first, not the diagram at bottom
+            const detailWrapper = document.getElementById('exp-detail-wrapper');
+            if (detailWrapper) {
+                detailWrapper.scrollTop = 0;
             }
         };
 
