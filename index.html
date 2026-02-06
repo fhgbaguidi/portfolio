@@ -280,7 +280,7 @@
                 id: 'norauto-go',
                 role: 'Backend Engineer (Golang)',
                 company: 'Norauto Int. (BeAPI)',
-                period: 'Janv 2018 - Août 2018',
+                period: 'Janv 2018 - Sept 2018',
                 type: 'CDI',
                 context: 'Développement de microservices critiques.',
                 highlights: [
@@ -355,17 +355,27 @@
         ];
 
         // --- CHART.JS CONFIG ---
+        // Store chart instance globally to prevent duplication on re-renders
+        let myRadarChart = null;
+        
         const initChart = () => {
             const ctx = document.getElementById('skillsRadar').getContext('2d');
-            new Chart(ctx, {
+            
+            // Clean up existing chart to prevent double tooltips/rendering
+            if (myRadarChart) {
+                myRadarChart.destroy();
+            }
+
+            myRadarChart = new Chart(ctx, {
                 type: 'radar',
                 data: {
                     labels: ['Backend Java', 'Cloud & DevOps', 'Architecture Distribuée', 'Data & Messaging', 'Leadership Tech'],
                     datasets: [{
                         label: 'Niveau d\'expertise',
-                        data: [10, 8.5, 9.5, 8, 8],
-                        backgroundColor: 'rgba(99, 102, 241, 0.2)', // Indigo 500 with opacity
-                        borderColor: '#818cf8', // Indigo 400
+                        // UPDATED VALUES: Increased Data/Cloud/Leadership to reflect Senior status better
+                        data: [10, 9, 9.5, 8.5, 9], 
+                        backgroundColor: 'rgba(99, 102, 241, 0.2)', 
+                        borderColor: '#818cf8', 
                         pointBackgroundColor: '#818cf8',
                         pointBorderColor: '#fff',
                         pointHoverBackgroundColor: '#fff',
@@ -377,11 +387,11 @@
                     maintainAspectRatio: false,
                     scales: {
                         r: {
-                            angleLines: { color: '#334155' }, // Slate 700
-                            grid: { color: '#334155' }, // Slate 700
+                            angleLines: { color: '#334155' }, 
+                            grid: { color: '#334155' }, 
                             pointLabels: {
                                 font: { size: 12, family: 'Inter', weight: '600' },
-                                color: '#94a3b8' // Slate 400
+                                color: '#94a3b8' 
                             },
                             ticks: { display: false, max: 10, min: 0, backdropColor: 'transparent' }
                         }
