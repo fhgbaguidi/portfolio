@@ -42,7 +42,7 @@ Méthodologie & Qualité : Application stricte du DDD, utilisation de Bruno pour
 Senior Software Engineer
 
 ADEO Services (Leroy Merlin) | Freelance | Mai 2019 - Oct 2022
-Contexte : Projet Tempo : Développement du nouveau tunnel de commande E-commerce (produits 1P, 3P Marketplace et services) en ligne et en magasin. Déploiement multi-BU (France, Espagne, Portugal, Italie, Pologne...).
+Contexte : Projet Tempo : Développement du nouveau tunnel de commande E-commerce (produits 1P, 3P Marketplace et services) en ligne et en magasin. Déploiement multi pays (France, Espagne, Portugal, ...).
 
 Périmètre Métier : Gestion complète du funnel de la validation des offres au panier jusqu'à la confirmation. Agrégation des solutions de livraison, interfaçage avec la brique de paiement et consolidation multi-systèmes.
 
