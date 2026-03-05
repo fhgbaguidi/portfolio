@@ -278,11 +278,11 @@
                 highlights: [
                     '<strong>Périmètre Métier :</strong> Gestion complète du funnel de la validation des offres au panier jusqu\'à la confirmation. Agrégation des solutions de livraison, interfaçage avec la brique de paiement et consolidation multi-systèmes.',
                     '<strong>Architecture Réactive & Event Sourcing :</strong> Développement de microservices avec <strong>Spring Reactor</strong>. Mise en place du socle technique asynchrone via <strong>Kafka</strong> (Kafka Streams, Kafka Connect) et flux <strong>CDC</strong>.',
-                    '<strong>Search & GoLang :</strong> Implémentation de la recherche de commandes (Tempo + Legacy) sur <strong>Elasticsearch</strong>. Développement en <strong>GoLang</strong> d\'un outil de synchronisation/indexation optimisé pour éviter les blocages.',
+                    '<strong>Search & GoLang :</strong> Implémentation de la recherche de commandes (Tempo + Legacy) sur <strong>Elasticsearch</strong> (écosystème de 10+ microservices). Développement en <strong>GoLang</strong> d\'un outil de synchronisation garantissant une indexation sans downtime, totalement transparente pour les utilisateurs de l\'API de Query/Search.',
                     '<strong>Fullstack & QA :</strong> Création d\'une interface d\'admin en <strong>AngularJS</strong> pour le suivi des commandes. Développement des tests (TU/TI) et scénarios <strong>Postman</strong>.',
                     '<strong>Cloud & Observabilité :</strong> Mise en place des métriques (Prometheus / Datadog), pipelines via GitHub Actions et déploiement sur Google Kubernetes Engine (<strong>GKE</strong>).'
                 ],
-                stack: ['Java', 'Spring WebFlux', 'Kafka', 'GoLang', 'Elasticsearch', 'Event Sourcing', 'GKE', 'Datadog', 'AngularJS'],
+                stack: ['Java', 'Spring Reactor', 'Kafka (Streams/Connect)', 'GoLang', 'Elasticsearch', 'PostgreSQL', 'Docker', 'Event Sourcing', 'GKE', 'GitHub Actions', 'Datadog / Prom.', 'AngularJS', 'Postman'],
                 showArchi: false
             },
             {
@@ -342,8 +342,10 @@
             { name: 'CDC', category: 'Architecture', level: 'Expert' },
             { name: 'Event Sourcing', category: 'Architecture', level: 'Advanced' },
             { name: 'Structurizr', category: 'Architecture', level: 'Advanced' },
+            { name: 'Onion / Clean Archi', category: 'Architecture', level: 'Advanced' },
             { name: 'Kafka / Streams', category: 'Data', level: 'Advanced' },
             { name: 'Kubernetes (GKE)', category: 'Cloud', level: 'Advanced' },
+            { name: 'Docker', category: 'Cloud', level: 'Advanced' },
             { name: 'GitOps', category: 'Cloud', level: 'Advanced' },
             { name: 'GitHub Actions', category: 'Cloud', level: 'Expert' },
             { name: 'Terraform', category: 'Cloud', level: 'Intermediate' },
@@ -353,6 +355,7 @@
             { name: 'Datadog / Prom.', category: 'Cloud', level: 'Advanced' },
             { name: 'TDD / BDD', category: 'Methodology', level: 'Advanced' },
             { name: 'DDD', category: 'Methodology', level: 'Advanced' },
+            { name: 'Jira', category: 'Methodology', level: 'Expert' },
         ];
 
         // --- CHART.JS CONFIG ---
@@ -374,7 +377,7 @@
                     datasets: [{
                         label: 'Niveau d\'expertise',
                         // UPDATED VALUES based on Senior profile
-                        data: [8, 7, 7, 7, 6.5], 
+                        data: [8, 7, 7, 7, 6.5],
                         backgroundColor: 'rgba(99, 102, 241, 0.2)', 
                         borderColor: '#818cf8', 
                         pointBackgroundColor: '#818cf8',
