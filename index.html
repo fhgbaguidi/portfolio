@@ -103,7 +103,7 @@
 
             <div class="flex gap-4 text-sm font-medium text-slate-400 items-center flex-wrap sm:flex-nowrap">
                 <!-- Email -->
-                <a href="mailto:fh.gbaguidi@gmail.com" target="_blank" class="hover:text-indigo-400 flex items-center gap-2 transition-colors">
+                <a href="mailto:fh.gbaguidi@gmail.com" class="hover:text-indigo-400 flex items-center gap-2 transition-colors">
                     <i class="fa-solid fa-envelope"></i> <span class="hidden sm:inline">fh.gbaguidi@gmail.com</span>
                 </a>
                 
@@ -267,9 +267,10 @@
                     '<strong>Modernisation & Réécriture :</strong> Contribution majeure à la réécriture du legacy <strong>Haskell vers Java 25</strong> / Spring Boot 3+.',
                     '<strong>Architecture Event-Driven :</strong> Mise en place de <strong>CDC (Change Data Capture)</strong> sur PostgreSQL pour propulser les événements vers Kafka.',
                     '<strong>Pattern Outbox & CQRS :</strong> Séparation des modèles (Write/Read). Le Query Service consomme une base de projection dédiée alimentée par Kafka.',
-                    '<strong>Industrialisation :</strong> Pipelines CI/CD modernes, déploiement GitOps sur Kubernetes. Suivi via <strong>Jira</strong>.'
+                    '<strong>Industrialisation :</strong> Déploiement GitOps sur Kubernetes et pipelines CI/CD via <strong>GitHub Actions</strong>.',
+                    '<strong>Méthodologie & Qualité :</strong> Application stricte du DDD, architecture Hexagonale/Onion et gestion de projet via <strong>Jira</strong>.'
                 ],
-                stack: ['Java 25', 'Spring Boot 3', 'Kafka', 'CDC', 'Debezium', 'PostgreSQL', 'Kubernetes', 'GitOps', 'Jira'],
+                stack: ['Java 25', 'Spring Boot 3', 'Kafka', 'CDC', 'Debezium', 'PostgreSQL', 'Kubernetes', 'GitOps', 'GitHub Actions', 'Jira', 'Structurizr'],
                 showArchi: false
             },
             {
@@ -278,13 +279,14 @@
                 company: 'ADEO Services',
                 period: 'Mai 2019 - Oct 2022',
                 type: 'Freelance',
-                context: 'Développement et maintenance de solutions backend à l\'échelle du groupe (Leroy Merlin, etc.).',
+                context: 'Projet Tempo : Nouveau tunnel de commande E-commerce d\'ADEO, avec pour objectif un déploiement international dans toutes les Business Units (BUs).',
                 highlights: [
-                    'Construction de microservices Java robustes dans un environnement Cloud.',
-                    'Contribution à la stratégie DevOps et automatisation des déploiements.',
-                    'Application des bonnes pratiques de Software Craftsmanship et gestion via <strong>Jira</strong>.'
+                    '<strong>Architecture Réactive :</strong> Développement de microservices Java en programmation réactive et asynchrone.',
+                    '<strong>Event-Driven & Data :</strong> Intégration de <strong>Kafka</strong> et mise en place de flux <strong>CDC</strong> pour la synchronisation des données.',
+                    '<strong>Cloud & Déploiement :</strong> Contribution à la stratégie DevOps et automatisation des déploiements dans un environnement Cloud.',
+                    '<strong>Qualité :</strong> Application des bonnes pratiques de Software Craftsmanship et gestion via <strong>Jira</strong>.'
                 ],
-                stack: ['Java', 'Golang', 'Microservices', 'Cloud', 'DevOps', 'Jenkins', 'Jira'],
+                stack: ['Java', 'Programmation Réactive', 'Kafka', 'CDC', 'Cloud', 'DevOps', 'Jira'],
                 showArchi: false
             },
             {
@@ -365,9 +367,11 @@
         const techSkills = [
             { name: 'Java 25', category: 'Backend', level: 'Expert' },
             { name: 'Spring Boot 3+', category: 'Backend', level: 'Expert' },
+            { name: 'Spring WebFlux', category: 'Backend', level: 'Advanced' },
             { name: 'JPA/Hibernate', category: 'Backend', level: 'Advanced' },
             { name: 'CQRS', category: 'Architecture', level: 'Expert' },
             { name: 'CDC', category: 'Architecture', level: 'Expert' },
+            { name: 'Structurizr', category: 'Architecture', level: 'Advanced' },
             { name: 'Onion / Clean Archi', category: 'Architecture', level: 'Advanced' },
             { name: 'Kafka', category: 'Data', level: 'Advanced' },
             { name: 'Kubernetes', category: 'Cloud', level: 'Advanced' },
@@ -377,6 +381,7 @@
             { name: 'Jira', category: 'Methodology', level: 'Expert' },
             { name: 'Terraform', category: 'Cloud', level: 'Intermediate' },
             { name: 'PostgreSQL', category: 'Data', level: 'Advanced' },
+            { name: 'jOOQ', category: 'Data', level: 'Advanced' },
             { name: 'Elasticsearch/OpenSearch', category: 'Data', level: 'Advanced' },
             { name: 'TDD / BDD', category: 'Methodology', level: 'Advanced' },
             { name: 'DDD', category: 'Methodology', level: 'Advanced' },
