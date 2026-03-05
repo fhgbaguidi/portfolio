@@ -101,32 +101,27 @@
                 </div>
             </div>
 
-            <div class="flex gap-4 text-sm font-medium text-slate-400 items-center flex-wrap sm:flex-nowrap">
-                <!-- Email -->
-                <a href="mailto:fh.gbaguidi@gmail.com" class="hover:text-indigo-400 flex items-center gap-2 transition-colors">
-                    <i class="fa-solid fa-envelope"></i> <span class="hidden sm:inline">fh.gbaguidi@gmail.com</span>
-                </a>
-                
-                <span class="hidden sm:inline text-slate-600">|</span>
-                
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/fgbaguidi" target="_blank" class="hover:text-indigo-400 flex items-center gap-2 transition-colors">
-                    <i class="fa-brands fa-linkedin text-lg"></i> <span class="hidden sm:inline">LinkedIn</span>
-                </a>
+            <div class="flex items-center gap-4 flex-wrap sm:flex-nowrap">
+                <!-- Social Links -->
+                <div class="flex gap-4 text-sm font-medium text-slate-400 items-center">
+                    <a href="https://www.linkedin.com/in/fgbaguidi" target="_blank" class="hover:text-indigo-400 flex items-center gap-2 transition-colors">
+                        <i class="fa-brands fa-linkedin text-lg"></i> <span class="hidden md:inline">LinkedIn</span>
+                    </a>
+                    <span class="text-slate-600">|</span>
+                    <a href="https://github.com/fhgbaguidi" target="_blank" class="hover:text-indigo-400 flex items-center gap-2 transition-colors">
+                        <i class="fa-brands fa-github text-lg"></i> <span class="hidden md:inline">GitHub</span>
+                    </a>
+                </div>
 
-                <span class="hidden sm:inline text-slate-600">|</span>
-
-                <!-- GitHub -->
-                <a href="https://github.com/fhgbaguidi" target="_blank" class="hover:text-indigo-400 flex items-center gap-2 transition-colors">
-                    <i class="fa-brands fa-github text-lg"></i> <span class="hidden sm:inline">GitHub</span>
-                </a>
-                
-                <span class="hidden sm:inline text-slate-600">|</span>
-                
-                <!-- Location -->
-                <span class="flex items-center gap-2">
-                    <i class="fa-solid fa-location-dot"></i> <span class="hidden sm:inline">Lille / Remote</span>
-                </span>
+                <!-- Call to Action Buttons -->
+                <div class="flex gap-2 ml-auto sm:ml-4">
+                    <a href="mailto:fh.gbaguidi@gmail.com" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs sm:text-sm font-bold rounded shadow-lg transition-colors flex items-center gap-2 border border-indigo-500">
+                        <i class="fa-solid fa-paper-plane"></i> <span class="hidden sm:inline">Me Contacter</span>
+                    </a>
+                    <button onclick="alert('Le CV PDF est en cours de génération depuis le LaTeX !')" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs sm:text-sm font-bold rounded shadow border border-slate-600 transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-download"></i> <span class="hidden sm:inline">CV PDF</span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -143,16 +138,16 @@
 
                 <p class="text-slate-300 leading-relaxed text-lg">
                     Ingénieur logiciel senior avec plus de <strong>10 ans d'expérience</strong>, je suis spécialisé dans la conception d'architectures distribuées résilientes. 
-                    Expert de l'écosystème <strong>Java (25, Spring Boot 3+)</strong>, j'accompagne la modernisation des SI critiques.
+                    Expert de l'écosystème <strong>Java (21+, Spring Boot 3+)</strong>, j'accompagne la modernisation des SI critiques.
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                     <div class="bg-indigo-900/30 p-4 rounded-lg border-l-4 border-indigo-500">
                         <h3 class="font-bold text-indigo-200 mb-1">Architecture Distribuée</h3>
-                        <p class="text-sm text-indigo-300">CQRS, CDC, DDD, Microservices.</p>
+                        <p class="text-sm text-indigo-300">CQRS, CDC, Event Sourcing, Microservices.</p>
                     </div>
                     <div class="bg-emerald-900/30 p-4 rounded-lg border-l-4 border-emerald-500">
                         <h3 class="font-bold text-emerald-200 mb-1">Modernisation Legacy</h3>
-                        <p class="text-sm text-emerald-300">Réécriture Haskell vers Java, Migration Cloud.</p>
+                        <p class="text-sm text-emerald-300">Réécritures critiques, Migration Cloud & K8s.</p>
                     </div>
                 </div>
                 <p class="text-slate-400 text-sm mt-4">
@@ -258,94 +253,68 @@
             {
                 id: 'decathlon',
                 role: 'Senior Java Engineer',
-                company: 'Decathlon United (International)',
+                company: 'Decathlon United',
                 period: 'Nov 2022 - Aujourd\'hui',
                 type: 'Freelance',
-                context: 'Projet stratégique de centralisation du catalogue produit pour l\'ensemble des pays (United). Outil central alimentant l\'Ecommerce et les Magasins.',
+                context: 'Projet stratégique de centralisation du catalogue produit (1P + 3P) pour l\'ensemble des pays (France, Espagne, Italie, Portugal, Belgique...). Outil central alimentant l\'Ecommerce et les Magasins.',
                 highlights: [
-                    '<strong>Stratégie Data :</strong> Centralisation, uniformisation et structuration du catalogue produit mondial. <strong>Enrichissement et mise à disposition de plusieurs centaines de millions de fiches produits aux différents canaux.</strong> Garantie de l\'intégrité automatisée via écoute de référentiels externes.',
-                    '<strong>Modernisation & Réécriture :</strong> Contribution majeure à la réécriture du legacy <strong>Haskell vers Java 25</strong> / Spring Boot 3+.',
+                    '<strong>Stratégie Data & Métier :</strong> Centralisation, uniformisation et structuration du catalogue mondial. <strong>Enrichissement de plusieurs centaines de millions de fiches produits</strong> aux différents canaux (1P et 3P). Garantie d\'intégrité automatisée.',
+                    '<strong>Modernisation & Performance :</strong> Migration des 3 services principaux en 6 mois. <strong>Réduction de moitié du temps de processing global du catalogue.</strong> Contribution majeure à la réécriture du legacy Haskell vers <strong>Java 21+</strong> / Spring Boot 3+.',
                     '<strong>Architecture Event-Driven :</strong> Mise en place de <strong>CDC (Change Data Capture)</strong> sur PostgreSQL pour propulser les événements vers Kafka.',
                     '<strong>Pattern Outbox & CQRS :</strong> Séparation des modèles (Write/Read). Le Query Service consomme une base de projection dédiée alimentée par Kafka.',
                     '<strong>Industrialisation :</strong> Déploiement GitOps sur Kubernetes et pipelines CI/CD via <strong>GitHub Actions</strong>.',
-                    '<strong>Méthodologie & Qualité :</strong> Application stricte du DDD, architecture Hexagonale/Onion et gestion de projet via <strong>Jira</strong>.'
+                    '<strong>Méthodologie & Qualité :</strong> Application stricte du DDD, utilisation de <strong>Bruno</strong> pour les scénarios API, et gestion de projet via <strong>Jira</strong>.'
                 ],
-                stack: ['Java 25', 'Spring Boot 3', 'Kafka', 'CDC', 'Debezium', 'PostgreSQL', 'Kubernetes', 'GitOps', 'GitHub Actions', 'Jira', 'Structurizr'],
+                stack: ['Java 21+', 'Spring Boot 3', 'Kafka', 'CDC', 'PostgreSQL', 'Kubernetes', 'GitOps', 'GitHub Actions', 'Bruno', 'Structurizr'],
                 showArchi: false
             },
             {
                 id: 'adeo',
                 role: 'Senior Software Engineer',
-                company: 'ADEO Services',
+                company: 'ADEO Services (Leroy Merlin)',
                 period: 'Mai 2019 - Oct 2022',
                 type: 'Freelance',
-                context: 'Projet Tempo : Nouveau tunnel de commande E-commerce d\'ADEO, avec pour objectif un déploiement international dans toutes les Business Units (BUs).',
+                context: 'Projet Tempo : Développement du nouveau tunnel de commande E-commerce (produits 1P, 3P Marketplace et services) en ligne et en magasin. Déploiement multi-BU (France, Espagne, Portugal, Italie, Pologne...).',
                 highlights: [
-                    '<strong>Architecture Réactive :</strong> Développement de microservices Java en programmation réactive et asynchrone.',
-                    '<strong>Event-Driven & Data :</strong> Intégration de <strong>Kafka</strong> et mise en place de flux <strong>CDC</strong> pour la synchronisation des données.',
-                    '<strong>Cloud & Déploiement :</strong> Contribution à la stratégie DevOps et automatisation des déploiements dans un environnement Cloud.',
-                    '<strong>Qualité :</strong> Application des bonnes pratiques de Software Craftsmanship et gestion via <strong>Jira</strong>.'
+                    '<strong>Périmètre Métier :</strong> Gestion complète du funnel de la validation des offres au panier jusqu\'à la confirmation. Agrégation des solutions de livraison, interfaçage avec la brique de paiement et consolidation multi-systèmes.',
+                    '<strong>Architecture Réactive & Event Sourcing :</strong> Développement de microservices avec <strong>Spring Reactor</strong>. Mise en place du socle technique asynchrone via <strong>Kafka</strong> (Kafka Streams, Kafka Connect) et flux <strong>CDC</strong>.',
+                    '<strong>Search & GoLang :</strong> Implémentation de la recherche de commandes (Tempo + Legacy) sur <strong>Elasticsearch</strong>. Développement en <strong>GoLang</strong> d\'un outil de synchronisation/indexation optimisé pour éviter les blocages.',
+                    '<strong>Fullstack & QA :</strong> Création d\'une interface d\'admin en <strong>AngularJS</strong> pour le suivi des commandes. Développement des tests (TU/TI) et scénarios <strong>Postman</strong>.',
+                    '<strong>Cloud & Observabilité :</strong> Mise en place des métriques (Prometheus / Datadog), pipelines via GitHub Actions et déploiement sur Google Kubernetes Engine (<strong>GKE</strong>).'
                 ],
-                stack: ['Java', 'Programmation Réactive', 'Kafka', 'CDC', 'Cloud', 'DevOps', 'Jira'],
+                stack: ['Java', 'Spring WebFlux', 'Kafka', 'GoLang', 'Elasticsearch', 'Event Sourcing', 'GKE', 'Datadog', 'AngularJS'],
                 showArchi: false
             },
             {
-                id: 'norauto-lead',
-                role: 'Tech Lead / Lead Developer',
+                id: 'norauto-api',
+                role: 'Tech Lead API / Backend Eng.',
                 company: 'Norauto Int. (BeAPI)',
-                period: 'Sept 2018 - Avril 2019',
+                period: 'Janv 2018 - Avril 2019',
                 type: 'CDI',
-                context: 'Transformation digitale et socle API.',
+                context: 'Transformation digitale et construction du socle API / API Factory de l\'entreprise.',
                 highlights: [
-                    'Pilotage de l\'équipe transverse et définition des standards de code.',
-                    'Industrialisation des processus de livraison (CI/CD).',
-                    'Coaching des développeurs et évangélisation Clean Code.'
+                    'Pilotage technique de l\'équipe transverse et définition des standards de code (évangélisation Clean Code).',
+                    'Conception et développement de microservices critiques en <strong>Golang</strong> et Java.',
+                    'Sécurité Applicative (AppSec) : Implémentation des protocoles OAuth2 / OIDC.',
+                    'Industrialisation des processus de livraison (CI/CD) et tuning des performances des services.'
                 ],
-                stack: ['Java', 'Leadership', 'CI/CD', 'API'],
-                showArchi: false
-            },
-            {
-                id: 'norauto-go',
-                role: 'Backend Engineer (Golang)',
-                company: 'Norauto Int. (BeAPI)',
-                period: 'Janv 2018 - Sept 2018',
-                type: 'CDI',
-                context: 'Développement de microservices critiques.',
-                highlights: [
-                    'Conception de microservices en Golang.',
-                    'Sécurité (AppSec) : Implémentation OAuth2/OIDC.',
-                    'Tuning des performances Go.'
-                ],
-                stack: ['Golang', 'OAuth2', 'Microservices'],
+                stack: ['Golang', 'Java', 'OAuth2 / OIDC', 'Microservices', 'CI/CD'],
                 showArchi: false
             },
             {
                 id: 'norauto-archi',
-                role: 'Architecte Technique Ecommerce',
+                role: 'Architecte Technique & Lead',
                 company: 'Norauto Int.',
-                period: 'Août 2017 - Déc 2017',
+                period: 'Janv 2017 - Déc 2017',
                 type: 'CDI',
-                context: 'Audit et stratégie technique.',
+                context: 'Audit, stratégie technique et supervision des environnements de production Ecommerce.',
                 highlights: [
-                    'Analyse de la dette technique.',
-                    'Amélioration de la Developer Experience (DX).',
-                    'Roadmap de refactoring.'
+                    'Analyse de la dette technique et définition de la roadmap globale de refactoring.',
+                    'Mise en place de la stack d\'observabilité <strong>ELK</strong> (Elasticsearch, Logstash, Kibana) pour la gestion des logs.',
+                    'Amélioration de la Developer Experience (DX) via la création d\'outillage interne.',
+                    'Run : Supervision de la stabilité de la plateforme Ecommerce et gestion des incidents.'
                 ],
-                stack: ['Audit', 'Architecture', 'Performance'],
-                showArchi: false
-            },
-            {
-                id: 'norauto-devops',
-                role: 'Lead Developer & DevOps',
-                company: 'Norauto Int.',
-                period: 'Janv 2017 - Juil 2017',
-                type: 'CDI',
-                context: 'Observabilité et Run.',
-                highlights: [
-                    'Mise en place de la stack ELK pour les logs.',
-                    'Supervision de la stabilité de la plateforme Ecommerce.'
-                ],
-                stack: ['ELK Stack', 'Monitoring', 'Java'],
+                stack: ['Architecture', 'ELK Stack', 'Audit', 'DevOps', 'Run'],
                 showArchi: false
             },
             {
@@ -354,10 +323,10 @@
                 company: 'Norauto Int.',
                 period: 'Sept 2015 - Déc 2016',
                 type: 'CDI',
-                context: 'Développement modules e-commerce.',
+                context: 'Développement de modules core pour l\'e-commerce.',
                 highlights: [
-                    'Développement Java/J2EE.',
-                    'Outils de suivi marketing temps réel.'
+                    'Développement de modules backend en Java/J2EE.',
+                    'Création et maintenance d\'outils de suivi marketing en temps réel.'
                 ],
                 stack: ['Java', 'J2EE', 'Marketing Tools'],
                 showArchi: false
@@ -365,24 +334,23 @@
         ];
 
         const techSkills = [
-            { name: 'Java 25', category: 'Backend', level: 'Expert' },
+            { name: 'Java 21+', category: 'Backend', level: 'Expert' },
             { name: 'Spring Boot 3+', category: 'Backend', level: 'Expert' },
             { name: 'Spring WebFlux', category: 'Backend', level: 'Advanced' },
             { name: 'JPA/Hibernate', category: 'Backend', level: 'Advanced' },
             { name: 'CQRS', category: 'Architecture', level: 'Expert' },
             { name: 'CDC', category: 'Architecture', level: 'Expert' },
+            { name: 'Event Sourcing', category: 'Architecture', level: 'Advanced' },
             { name: 'Structurizr', category: 'Architecture', level: 'Advanced' },
-            { name: 'Onion / Clean Archi', category: 'Architecture', level: 'Advanced' },
-            { name: 'Kafka', category: 'Data', level: 'Advanced' },
-            { name: 'Kubernetes', category: 'Cloud', level: 'Advanced' },
+            { name: 'Kafka / Streams', category: 'Data', level: 'Advanced' },
+            { name: 'Kubernetes (GKE)', category: 'Cloud', level: 'Advanced' },
             { name: 'GitOps', category: 'Cloud', level: 'Advanced' },
-            { name: 'Docker', category: 'Cloud', level: 'Advanced' },
             { name: 'GitHub Actions', category: 'Cloud', level: 'Expert' },
-            { name: 'Jira', category: 'Methodology', level: 'Expert' },
             { name: 'Terraform', category: 'Cloud', level: 'Intermediate' },
             { name: 'PostgreSQL', category: 'Data', level: 'Advanced' },
             { name: 'jOOQ', category: 'Data', level: 'Advanced' },
-            { name: 'Elasticsearch/OpenSearch', category: 'Data', level: 'Advanced' },
+            { name: 'Elasticsearch', category: 'Data', level: 'Advanced' },
+            { name: 'Datadog / Prom.', category: 'Cloud', level: 'Advanced' },
             { name: 'TDD / BDD', category: 'Methodology', level: 'Advanced' },
             { name: 'DDD', category: 'Methodology', level: 'Advanced' },
         ];
