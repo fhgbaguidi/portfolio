@@ -4,13 +4,11 @@
 % CONFIGURATION DU THÈME ET DES COULEURS
 % ----------------------------------------------------------------------------------
 \moderncvstyle{classic} 
-\moderncvcolor{black}
-
-% OVERRIDE COULEUR (INDIGO PORTFOLIO #4F46E5)
-\usepackage{xcolor}
+\moderncvcolor{black} % Thème sobre et élégant en noir
 
 % Encodage et mise en page optimisée (Plus d'espace pour le texte)
-\usepackage[utf8]{inputenc}
+% fontspec gère nativement l'UTF-8 et les accents pour les ATS sans recourir à fontenc/inputenc
+\usepackage{fontspec}
 \usepackage[scale=0.85, top=1.5cm, bottom=1.5cm]{geometry} % Marges réduites
 \usepackage[french]{babel}
 
@@ -64,7 +62,7 @@
 \end{itemize}}
 
 \cventry{Mai 2019 -- Oct 2022}{Senior Software Engineer}{ADEO Services (Leroy Merlin)}{}{}{
-\textbf{Contexte :} Projet Tempo : Développement du nouveau tunnel de commande E-commerce (produits 1P, 3P Marketplace et services) en ligne et en magasin. Déploiement multi-BU (France, Espagne, Portugal, Italie, Pologne...).
+\textbf{Contexte :} Projet Tempo : Développement du nouveau tunnel de commande E-commerce (produits 1P, 3P Marketplace et services) en ligne et en magasin. Déploiement multi-BU (France, Espagne, Italie, Portugal, ...).
 \begin{itemize}
     \item \textbf{Périmètre Métier :} Gestion complète du funnel de la validation des offres au panier jusqu'à la confirmation. Agrégation des solutions de livraison, interfaçage avec la brique de paiement et consolidation multi-systèmes.
     \item \textbf{Architecture Réactive \& Event Sourcing :} Développement de microservices avec \textbf{Spring Reactor}. Mise en place du socle technique asynchrone via \textbf{Kafka} (Kafka Streams, Kafka Connect) et flux \textbf{CDC}.
