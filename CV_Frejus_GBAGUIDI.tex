@@ -4,22 +4,25 @@
 % CONFIGURATION DU THÈME ET DES COULEURS
 % ----------------------------------------------------------------------------------
 \moderncvstyle{classic} 
-\moderncvcolor{blue} % Initialisation obligatoire
+\moderncvcolor{black}
 
 % OVERRIDE COULEUR (INDIGO PORTFOLIO #4F46E5)
 \usepackage{xcolor}
-\definecolor{color1}{HTML}{4F46E5} 
 
-% Encodage et mise en page
+% Encodage et mise en page optimisée (Plus d'espace pour le texte)
 \usepackage[utf8]{inputenc}
-\usepackage[scale=0.75]{geometry}
+\usepackage[scale=0.85, top=1.5cm, bottom=1.5cm]{geometry} % Marges réduites
 \usepackage[french]{babel}
+
+% Réduction de la largeur de la colonne des dates (Crucial pour aérer le texte)
+\setlength{\hintscolumnwidth}{2.4cm} 
 
 % ----------------------------------------------------------------------------------
 % DONNÉES PERSONNELLES
 % ----------------------------------------------------------------------------------
 \name{Fréjus}{GBAGUIDI}
-\title{Senior Java Backend Engineer \& Cloud Developer}
+% On réduit légèrement la taille du titre pour qu'il tienne sur une ligne
+\title{\Large Senior Java Backend Engineer \& Cloud Developer}
 \address{Lille, France (Ouvert au Remote)}{}{Freelance}
 \phone[mobile]{+33 6 50 27 94 29}
 \email{fh.gbaguidi@gmail.com}
@@ -97,8 +100,8 @@
 
 % Formation
 \section{Formation}
-\cventry{2013 -- 2015}{Master TIIR (Technologies de l'Information et Ingénierie du Web et Réseau)}{Université de Lille 1}{Lille}{}{}
-\cventry{2012 -- 2013}{Licence Informatique}{Université de Lille 1}{Lille}{}{}
+\cventry{2013 -- 2015}{Master TIIR}{Université de Lille 1}{}{}{Technologies de l'Information et Ingénierie du Web et Réseau}
+\cventry{2012 -- 2013}{Licence Informatique}{Université de Lille 1}{}{}{}
 
 % Langues & Intérêts
 \section{Langues \& Intérêts}
