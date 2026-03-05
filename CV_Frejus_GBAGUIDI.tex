@@ -1,0 +1,108 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% ----------------------------------------------------------------------------------
+% CONFIGURATION DU THÈME ET DES COULEURS
+% ----------------------------------------------------------------------------------
+\moderncvstyle{classic} 
+\moderncvcolor{blue} % Initialisation obligatoire
+
+% OVERRIDE COULEUR (INDIGO PORTFOLIO #4F46E5)
+\usepackage{xcolor}
+\definecolor{color1}{HTML}{4F46E5} 
+
+% Encodage et mise en page
+\usepackage[utf8]{inputenc}
+\usepackage[scale=0.75]{geometry}
+\usepackage[french]{babel}
+
+% ----------------------------------------------------------------------------------
+% DONNÉES PERSONNELLES
+% ----------------------------------------------------------------------------------
+\name{Fréjus}{GBAGUIDI}
+\title{Senior Java Backend Engineer \& Cloud Developer}
+\address{Lille, France (Ouvert au Remote)}{}{Freelance}
+\phone[mobile]{+33 6 50 27 94 29}
+\email{fh.gbaguidi@gmail.com}
+\social[linkedin]{fgbaguidi}
+\social[github]{fhgbaguidi}
+\extrainfo{Portfolio: \href{https://fhgbaguidi.github.io/portfolio/}{fhgbaguidi.github.io/portfolio}}
+
+% ----------------------------------------------------------------------------------
+% CONTENU
+% ----------------------------------------------------------------------------------
+\begin{document}
+
+\makecvtitle
+
+% Vue d'ensemble
+\section{Vue d'ensemble}
+\cvitem{}{Ingénieur logiciel senior avec plus de \textbf{10 ans d'expérience}, je suis spécialisé dans la conception d'architectures distribuées résilientes. Expert de l'écosystème \textbf{Java (21+, Spring Boot 3+)}, j'accompagne la modernisation des SI critiques. \textbf{Objectif :} Concevoir des systèmes performants, scalables et maintenables en appliquant les principes du Software Craftsmanship et du GitOps.}
+
+% Compétences Techniques
+\section{Technical Stack}
+\cvitem{\textbf{Backend}}{\textbf{Java 21+}, Spring Boot 3+, \textbf{Spring WebFlux}, JPA/Hibernate}
+\cvitem{\textbf{Architecture}}{\textbf{CQRS}, \textbf{CDC}, \textbf{Event Sourcing}, Structurizr, Onion / Clean Archi}
+\cvitem{\textbf{Data}}{\textbf{Kafka / Streams}, PostgreSQL, \textbf{jOOQ}, Elasticsearch}
+\cvitem{\textbf{Cloud}}{\textbf{Kubernetes (GKE)}, \textbf{Docker}, \textbf{GitOps}, GitHub Actions, Terraform, Datadog / Prom.}
+\cvitem{\textbf{Methodology}}{\textbf{Jira}, TDD / BDD, DDD}
+
+% Expériences
+\section{Parcours Professionnel}
+
+\cventry{Nov 2022 -- Présent}{Senior Java Engineer}{Decathlon United}{Lille / Hybride}{}{
+\textbf{Contexte :} Projet stratégique de centralisation du catalogue produit (1P + 3P) pour l'ensemble des pays (France, Espagne, Italie, Portugal, Belgique...). Outil central alimentant l'Ecommerce et les Magasins.
+\begin{itemize}
+    \item \textbf{Stratégie Data \& Métier :} Centralisation, uniformisation et structuration du catalogue mondial. \textbf{Enrichissement de plusieurs centaines de millions de fiches produits} aux différents canaux (1P et 3P). Garantie d'intégrité automatisée.
+    \item \textbf{Modernisation \& Performance :} Migration des 3 services principaux en 6 mois. \textbf{Réduction de moitié du temps de processing global du catalogue.} Contribution à la réécriture du legacy Haskell vers \textbf{Java 21+} / Spring Boot 3+.
+    \item \textbf{Architecture Event-Driven :} Mise en place de \textbf{CDC (Change Data Capture)} sur PostgreSQL pour propulser les événements vers Kafka.
+    \item \textbf{Pattern Outbox \& CQRS :} Séparation des modèles (Write/Read). Le Query Service consomme une base de projection dédiée alimentée par Kafka.
+    \item \textbf{Industrialisation :} Déploiement GitOps sur Kubernetes et pipelines CI/CD via \textbf{GitHub Actions}.
+    \item \textbf{Méthodologie \& Qualité :} Application stricte du DDD, utilisation de \textbf{Bruno} pour les scénarios API, et gestion de projet via \textbf{Jira}.
+\end{itemize}}
+
+\cventry{Mai 2019 -- Oct 2022}{Senior Software Engineer}{ADEO Services (Leroy Merlin)}{Lille}{}{
+\textbf{Contexte :} Projet Tempo : Développement du nouveau tunnel de commande E-commerce (produits 1P, 3P Marketplace et services) en ligne et en magasin. Déploiement multi-BU (France, Espagne, Portugal, Italie, Pologne...).
+\begin{itemize}
+    \item \textbf{Périmètre Métier :} Gestion complète du funnel de la validation des offres au panier jusqu'à la confirmation. Agrégation des solutions de livraison, interfaçage avec la brique de paiement et consolidation multi-systèmes.
+    \item \textbf{Architecture Réactive \& Event Sourcing :} Développement de microservices avec \textbf{Spring Reactor}. Mise en place du socle technique asynchrone via \textbf{Kafka} (Kafka Streams, Kafka Connect) et flux \textbf{CDC}.
+    \item \textbf{Search \& GoLang :} Implémentation de la recherche de commandes (Tempo + Legacy) sur \textbf{Elasticsearch} (écosystème de 10+ microservices). Développement en \textbf{GoLang} d'un outil de synchronisation garantissant une indexation sans downtime, totalement transparente pour les utilisateurs de l'API de Query/Search.
+    \item \textbf{Fullstack \& QA :} Création d'une interface d'admin en \textbf{AngularJS} pour le suivi des commandes. Développement des tests (TU/TI) et scénarios \textbf{Postman}.
+    \item \textbf{Cloud \& Observabilité :} Mise en place des métriques (Prometheus / Datadog), pipelines via GitHub Actions et déploiement sur Google Kubernetes Engine (\textbf{GKE}).
+\end{itemize}}
+
+\cventry{Jan 2018 -- Avr 2019}{Tech Lead API / Backend Eng.}{Norauto Int. (BeAPI)}{Lille}{}{
+\textbf{Contexte :} Transformation digitale et construction du socle API / API Factory de l'entreprise.
+\begin{itemize}
+    \item Pilotage technique de l'équipe transverse et définition des standards de code (évangélisation Clean Code).
+    \item Conception et développement de microservices critiques en \textbf{Golang} et Java.
+    \item Sécurité Applicative (AppSec) : Implémentation des protocoles OAuth2 / OIDC.
+    \item Industrialisation des processus de livraison (CI/CD) et tuning des performances des services.
+\end{itemize}}
+
+\cventry{Jan 2017 -- Déc 2017}{Architecte Technique \& Lead}{Norauto Int.}{Lille}{}{
+\textbf{Contexte :} Audit, stratégie technique et supervision des environnements de production Ecommerce.
+\begin{itemize}
+    \item Analyse de la dette technique et définition de la roadmap globale de refactoring.
+    \item Mise en place de la stack d'observabilité \textbf{ELK} (Elasticsearch, Logstash, Kibana) pour la gestion des logs.
+    \item Amélioration de la Developer Experience (DX) via la création d'outillage interne.
+    \item Run : Supervision de la stabilité de la plateforme Ecommerce et gestion des incidents.
+\end{itemize}}
+
+\cventry{Sept 2015 -- Déc 2016}{Software Engineer}{Norauto Int.}{Lille}{}{
+\textbf{Contexte :} Développement de modules core pour l'e-commerce.
+\begin{itemize}
+    \item Développement de modules backend en Java/J2EE.
+    \item Création et maintenance d'outils de suivi marketing en temps réel.
+\end{itemize}}
+
+% Formation
+\section{Formation}
+\cventry{2013 -- 2015}{Master TIIR (Technologies de l'Information et Ingénierie du Web et Réseau)}{Université de Lille 1}{Lille}{}{}
+\cventry{2012 -- 2013}{Licence Informatique}{Université de Lille 1}{Lille}{}{}
+
+% Langues & Intérêts
+\section{Langues \& Intérêts}
+\cvitem{Langues}{Français (Natif), Anglais (Technique)}
+\cvitem{Intérêts}{Veille Technologique, Musique, Cuisine, Voyages}
+
+\end{document}
